@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background hexagon -->
+  <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" 
+           fill="none" 
+           stroke="url(#techGradient)" 
+           stroke-width="2" 
+           opacity="0.3"/>
+  
+  <!-- Circuit board traces -->
+  <g opacity="0.4" stroke="url(#techGradient)" stroke-width="1.5" fill="none">
+    <path d="M 20 30 L 30 30 L 35 35"/>
+    <path d="M 80 30 L 70 30 L 65 35"/>
+    <path d="M 20 70 L 30 70 L 35 65"/>
+    <path d="M 80 70 L 70 70 L 65 65"/>
+  </g>
+  
+  <!-- Central tech icon - stylized chip/processor -->
+  <g filter="url(#glow)">
+    <!-- Main chip body -->
+    <rect x="35" y="35" width="30" height="30" rx="3" 
+          fill="url(#techGradient)" 
+          stroke="url(#accentGradient)" 
+          stroke-width="2"/>
+    
+    <!-- Chip pins - left -->
+    <rect x="28" y="40" width="7" height="2" fill="url(#techGradient)"/>
+    <rect x="28" y="47" width="7" height="2" fill="url(#techGradient)"/>
+    <rect x="28" y="54" width="7" height="2" fill="url(#techGradient)"/>
+    
+    <!-- Chip pins - right -->
+    <rect x="65" y="40" width="7" height="2" fill="url(#techGradient)"/>
+    <rect x="65" y="47" width="7" height="2" fill="url(#techGradient)"/>
+    <rect x="65" y="54" width="7" height="2" fill="url(#techGradient)"/>
+    
+    <!-- Chip pins - top -->
+    <rect x="40" y="28" width="2" height="7" fill="url(#techGradient)"/>
+    <rect x="47" y="28" width="2" height="7" fill="url(#techGradient)"/>
+    <rect x="54" y="28" width="2" height="7" fill="url(#techGradient)"/>
+    
+    <!-- Chip pins - bottom -->
+    <rect x="40" y="65" width="2" height="7" fill="url(#techGradient)"/>
+    <rect x="47" y="65" width="2" height="7" fill="url(#techGradient)"/>
+    <rect x="54" y="65" width="2" height="7" fill="url(#techGradient)"/>
+    
+    <!-- Inner circuit pattern -->
+    <circle cx="50" cy="50" r="8" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.8"/>
+    <circle cx="50" cy="50" r="3" fill="#ffffff" opacity="0.9"/>
+    
+    <!-- Digital lines inside chip -->
+    <line x1="42" y1="44" x2="46" y2="44" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    <line x1="42" y1="50" x2="46" y2="50" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    <line x1="42" y1="56" x2="46" y2="56" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    
+    <line x1="54" y1="44" x2="58" y2="44" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    <line x1="54" y1="50" x2="58" y2="50" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+    <line x1="54" y1="56" x2="58" y2="56" stroke="#ffffff" stroke-width="1" opacity="0.7"/>
+  </g>
+  
+  <!-- Corner connection nodes -->
+  <circle cx="20" cy="20" r="2" fill="url(#accentGradient)" opacity="0.8"/>
+  <circle cx="80" cy="20" r="2" fill="url(#accentGradient)" opacity="0.8"/>
+  <circle cx="20" cy="80" r="2" fill="url(#accentGradient)" opacity="0.8"/>
+  <circle cx="80" cy="80" r="2" fill="url(#accentGradient)" opacity="0.8"/>
+  
+  <!-- Tech accent dots -->
+  <circle cx="15" cy="50" r="1.5" fill="url(#techGradient)"/>
+  <circle cx="85" cy="50" r="1.5" fill="url(#techGradient)"/>
+  
+  <!-- Subtle orbiting elements -->
+  <circle cx="25" cy="15" r="1" fill="url(#accentGradient)" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="75" cy="85" r="1" fill="url(#accentGradient)" opacity="0.6">
+    <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>
