@@ -1,7 +1,7 @@
-import { BlogTemplate } from "./blogTemplate";
+import { Router } from "./router/router";
 
 function App() {
-  return <BlogTemplate />;
+  return <Router />;
 }
 
 export default App;
