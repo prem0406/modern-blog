@@ -36,7 +36,7 @@ export const BlogTemplate = () => {
   // };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50">
       {/* Navigation */}
       <Header />
 
@@ -46,7 +46,7 @@ export const BlogTemplate = () => {
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               Discover Stories That
-              <span className="block bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
+              <span className="block bg-linear-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
                 Inspire & Inform
               </span>
             </h2>

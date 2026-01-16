@@ -1,6 +1,6 @@
 const Newletter = () => {
   return (
-    <div className="relative overflow-hidden rounded-3xl p-12 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-600 shadow-2xl">
+    <div className="relative overflow-hidden rounded-3xl p-12 bg-linear-to-br from-purple-600 via-pink-600 to-orange-600 shadow-2xl">
       <div className="absolute inset-0 bg-black/10"></div>
       <div className="relative max-w-2xl mx-auto text-center">
         <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4">

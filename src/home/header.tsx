@@ -1,5 +1,5 @@
 import { Menu, Search, X } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
             <img src="/logo.svg" alt="ModernBlog" className="w-14 h-14" />
-            {/* <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            {/* <h1 className="text-2xl font-bold bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               ModernBlog
             </h1> */}
             <div className="hidden md:flex space-x-6">
@@ -44,7 +44,7 @@ const Header = () => {
             <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
               <Search className="w-5 h-5 text-gray-600" />
             </button>
-            <button className="hidden md:block px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 font-medium">
+            <button className="hidden md:block px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 font-medium">
               Subscribe
             </button>
             <button

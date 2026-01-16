@@ -141,7 +141,7 @@ const Blogs = () => {
               <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full"></div>
+                  <div className="w-8 h-8 bg-linear-to-br from-purple-400 to-pink-400 rounded-full"></div>
                   <div>
                     <p className="text-sm font-medium text-gray-900">
                       {post.author}

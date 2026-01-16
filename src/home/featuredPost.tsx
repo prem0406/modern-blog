@@ -20,14 +20,14 @@ const FeaturedPost = () => {
   const likedPosts = new Set();
   return (
     <div className="relative group overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 mb-20">
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent z-10"></div>
       <img
         src={featuredPost.image}
         alt={featuredPost.title}
         className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
       />
       <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 z-20">
-        <span className="inline-block px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full mb-4">
+        <span className="inline-block px-4 py-2 bg-linear-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full mb-4">
           Featured
         </span>
         <h3 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight">

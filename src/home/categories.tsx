@@ -1,5 +1,3 @@
-import React from "react";
-
 const categories = [
   { name: "Technology", color: "from-purple-500 to-pink-500", count: 24 },
   { name: "Design", color: "from-blue-500 to-cyan-500", count: 18 },
@@ -20,7 +18,7 @@ const Categories = () => {
             className="group relative overflow-hidden rounded-2xl p-6 bg-white shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer"
           >
             <div
-              className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-10 group-hover:opacity-20 transition-opacity`}
+              className={`absolute inset-0 bg-linear-to-br ${category.color} opacity-10 group-hover:opacity-20 transition-opacity`}
             ></div>
             <div className="relative">
               <h4 className="text-xl font-bold text-gray-900 mb-2">
@@ -28,7 +26,7 @@ const Categories = () => {
               </h4>
               <p className="text-sm text-gray-600">{category.count} articles</p>
               <div
-                className={`mt-4 w-12 h-1 bg-gradient-to-r ${category.color} rounded-full`}
+                className={`mt-4 w-12 h-1 bg-linear-to-r ${category.color} rounded-full`}
               ></div>
             </div>
           </div>
