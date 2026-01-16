@@ -20,7 +20,7 @@ interface QuestionCardProps {
 
 const QuestionCard: FC<QuestionCardProps> = ({ question }) => {
   return (
-    <div className="relative group overflow-hidden  bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer">
+    <div className="relative group overflow-hidden  bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
       {/* Overlay */}
       <div className="absolute inset-0 bg-linear-to-t from-blue-100 via-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

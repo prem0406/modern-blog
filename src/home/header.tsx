@@ -1,5 +1,6 @@
 import { Menu, Search, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,19 +10,28 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
-            <img src="/logo.svg" alt="ModernBlog" className="w-14 h-14" />
+            <a
+              href="/"
+              // className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
+            >
+              <img
+                src="/logo.svg"
+                alt="ModernBlog"
+                className="w-14 h-14 hover:scale-110 transition-transform duration-500"
+              />
+            </a>
             {/* <h1 className="text-2xl font-bold bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               ModernBlog
             </h1> */}
             <div className="hidden md:flex space-x-6">
               <a
-                href="#"
+                href="/"
                 className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
               >
                 Home
               </a>
               <a
-                href="#"
+                href="/blog"
                 className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
               >
                 Articles

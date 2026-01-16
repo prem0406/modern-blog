@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import { questions } from "../../data/question";
-import Header from "../../home/header";
 import QuestionCard from "./questionCard";
 
 // const questions: Question[] = [
@@ -219,26 +218,21 @@ import QuestionCard from "./questionCard";
 
 const BlogDetail = () => {
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50">
-      {/* Navigation */}
-      <Header />
-      {/* Questions */}
-      <section className="max-w-7xl mx-auto px-6 py-30">
-        <h2 className="text-4xl font-bold text-gray-900 mb-12">
-          Interview Questions
-        </h2>
+    <section className="max-w-7xl mx-auto px-6 py-30">
+      <h2 className="text-4xl font-bold text-gray-900 mb-12">
+        Interview Questions
+      </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
-          {questions
-            .filter((q) => q.isActive !== false)
-            .map((q) => (
-              <Link to={`/question/${q.id}`}>
-                <QuestionCard key={q.id} question={q} />
-              </Link>
-            ))}
-        </div>
-      </section>
-    </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+        {questions
+          .filter((q) => q.isActive !== false)
+          .map((q) => (
+            <Link to={`/question/${q.id}`}>
+              <QuestionCard key={q.id} question={q} />
+            </Link>
+          ))}
+      </div>
+    </section>
   );
 };
 
