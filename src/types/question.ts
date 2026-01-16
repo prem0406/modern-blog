@@ -1,3 +1,5 @@
+import type { AnswerBlock } from "./answer";
+
 export type QuestionCategory =
   | "react"
   | "react native"
@@ -12,7 +14,7 @@ export interface Question {
   id: number;
   category: QuestionCategory;
   question: string;
-  answer: string;
+  answer: AnswerBlock[];
   difficulty: QuestionDifficulty;
   tags: string[];
   isActive?: boolean;
