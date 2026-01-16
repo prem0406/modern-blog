@@ -1,6 +1,5 @@
 import { Menu, Search, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);

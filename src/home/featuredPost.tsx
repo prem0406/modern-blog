@@ -1,5 +1,4 @@
 import { Calendar, Clock, Heart, MessageCircle, User } from "lucide-react";
-import React from "react";
 
 const featuredPost = {
   id: 0,
