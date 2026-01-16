@@ -222,8 +222,8 @@ const BlogDetail = () => {
       {/* Navigation */}
       <Header />
       {/* Questions */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold text-white mb-12">
+      <section className="max-w-7xl mx-auto px-6 py-30">
+        <h2 className="text-4xl font-bold text-gray-900 mb-12">
           Interview Questions
         </h2>
 
