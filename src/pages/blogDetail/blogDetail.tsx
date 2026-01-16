@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { questions } from "../../data/question";
 import Header from "../../home/header";
 import QuestionCard from "./questionCard";
@@ -231,7 +232,9 @@ const BlogDetail = () => {
           {questions
             .filter((q) => q.isActive !== false)
             .map((q) => (
-              <QuestionCard key={q.id} question={q} />
+              <Link to={`/question/${q.id}`}>
+                <QuestionCard key={q.id} question={q} />
+              </Link>
             ))}
         </div>
       </section>

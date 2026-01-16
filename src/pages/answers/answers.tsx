@@ -1,8 +1,9 @@
+import { useParams } from "react-router";
 import { questions } from "../../data/question";
 import AnswerBlockRenderer from "./answerBlockRenderer";
 
 const QuestionDetail = () => {
-  const id = 1;
+  const { id } = useParams();
   const question = questions.find((q) => q.id === Number(id));
 
   if (!question || question.isActive === false) {
