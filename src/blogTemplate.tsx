@@ -2,6 +2,7 @@ import FeaturedPost from "./home/featuredPost";
 import Categories from "./home/categories";
 import Blogs from "./home/blogs/blogs";
 import Newletter from "./home/newletter";
+import { useThemeContext } from "./theme/themeContext";
 
 export const BlogTemplate = () => {
   // const [likedPosts, setLikedPosts] = useState<Set<number>>(new Set());
@@ -33,8 +34,12 @@ export const BlogTemplate = () => {
   //   });
   // };
 
+  const { isDarkMode } = useThemeContext();
+
   return (
-    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+    <section
+      className={`pt-32 pb-20 px-4 sm:px-6 lg:px-8 ${isDarkMode ? "bg-gray-900" : "bg-amber-50"}`}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">

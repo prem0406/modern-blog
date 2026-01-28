@@ -1,8 +1,11 @@
 import { Menu, Search, X } from "lucide-react";
 import { useState } from "react";
+import { useThemeContext } from "../theme/themeContext";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const { toggleTheme } = useThemeContext();
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
@@ -50,6 +53,12 @@ const Header = () => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
+            <button
+              onClick={toggleTheme}
+              className="hidden md:block px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 font-medium"
+            >
+              Toggle Theme
+            </button>
             <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
               <Search className="w-5 h-5 text-gray-600" />
             </button>
