@@ -5,10 +5,14 @@ import { useThemeContext } from "../theme/themeContext";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const { toggleTheme } = useThemeContext();
+  const { toggleTheme, isDarkMode } = useThemeContext();
+
+  const linksClasses = `${isDarkMode ? "text-gray-300" : "text-gray-700"} ${isDarkMode ? "`hover:text-gray-900" : "hover:text-purple-600"} transition-colors font-medium`;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
+    <nav
+      className={`fixed top-0 left-0 right-0 ${isDarkMode ? "bg-gray-850" : "bg-white/80"} backdrop-blur-md z-50 border-b ${isDarkMode ? "border-gray-800" : "border-gray-100"}  shadow-sm`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-8">
@@ -26,28 +30,16 @@ const Header = () => {
               ModernBlog
             </h1> */}
             <div className="hidden md:flex space-x-6">
-              <a
-                href="/"
-                className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
-              >
+              <a href="/" className={linksClasses}>
                 Home
               </a>
-              <a
-                href="/blog"
-                className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
-              >
+              <a href="/blog" className={linksClasses}>
                 Articles
               </a>
-              <a
-                href="#"
-                className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
-              >
+              <a href="#" className={linksClasses}>
                 Categories
               </a>
-              <a
-                href="#"
-                className="text-gray-700 hover:text-purple-600 transition-colors font-medium"
-              >
+              <a href="#" className={linksClasses}>
                 About
               </a>
             </div>

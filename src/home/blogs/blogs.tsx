@@ -1,4 +1,5 @@
 import { ArrowRight, Bookmark, Heart, MessageCircle } from "lucide-react";
+import { useThemeContext } from "../../theme/themeContext";
 
 const blogPosts = [
   {
@@ -87,6 +88,8 @@ const blogPosts = [
 ];
 
 const Blogs = () => {
+  const { isDarkMode } = useThemeContext();
+
   const likedPosts = new Set();
   const bookmarkedPosts = new Set();
   return (
@@ -102,7 +105,7 @@ const Blogs = () => {
         {blogPosts.map((post) => (
           <article
             key={post.id}
-            className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
+            className={`group ${isDarkMode ? "bg-gray-800" : "bg-white"} rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300`}
           >
             <div className="relative overflow-hidden">
               <img
@@ -111,7 +114,9 @@ const Blogs = () => {
                 className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute top-4 right-4 flex gap-2">
-                <button className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-md">
+                <button
+                  className={`p-2 ${isDarkMode ? "bg-gray-500" : "bg-white/90"} backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-md`}
+                >
                   <Heart
                     className={`w-4 h-4 ${
                       likedPosts.has(post.id)
@@ -132,13 +137,21 @@ const Blogs = () => {
               </div>
             </div>
             <div className="p-6">
-              <span className="inline-block px-3 py-1 bg-purple-100 text-purple-600 text-xs font-semibold rounded-full mb-3">
+              <span
+                className={`inline-block px-3 py-1 ${isDarkMode ? "bg-gray-900" : "bg-purple-100"} ${isDarkMode ? "text-purple-300" : "text-purple-600"} text-xs font-semibold rounded-full mb-3`}
+              >
                 {post.category}
               </span>
-              <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
+              <h4
+                className={`text-xl font-bold ${isDarkMode ? "text-gray-200" : "text-gray-900"} mb-3 group-hover:text-purple-600 transition-colors`}
+              >
                 {post.title}
               </h4>
-              <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
+              <p
+                className={`${isDarkMode ? "text-gray-300" : "text-gray-600"} mb-4 line-clamp-2`}
+              >
+                {post.excerpt}
+              </p>
               <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-linear-to-br from-purple-400 to-pink-400 rounded-full"></div>
