@@ -7,7 +7,8 @@ const Header = () => {
 
   const { toggleTheme, isDarkMode } = useThemeContext();
 
-  const linksClasses = `${isDarkMode ? "text-gray-300" : "text-gray-700"} ${isDarkMode ? "`hover:text-gray-900" : "hover:text-purple-600"} transition-colors font-medium`;
+  const linksClasses = `${isDarkMode ? "text-gray-300" : "text-gray-700"} ${isDarkMode ? "hover:text-gray-400" : "hover:text-purple-600"} transition-colors font-medium`;
+  const linksClassesMobile = `block ${linksClasses}`;
 
   return (
     <nav
@@ -71,30 +72,20 @@ const Header = () => {
         </div>
       </div>
       {menuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white/95 backdrop-blur-md">
-          <div className="px-4 py-4 space-y-3">
-            <a
-              href="#"
-              className="block text-gray-700 hover:text-purple-600 transition-colors font-medium"
-            >
+        <div
+          className={`md:hidden  opacity-90 border-t ${isDarkMode ? "border-gray-700" : "border-gray-100"} ${isDarkMode ? "bg-gray-850" : "bg-white/80"} backdrop-blur-md`}
+        >
+          <div className="px-4 py-4 space-y-3 flex flex-col items-center">
+            <a href="/" className={linksClassesMobile}>
               Home
             </a>
-            <a
-              href="#"
-              className="block text-gray-700 hover:text-purple-600 transition-colors font-medium"
-            >
+            <a href="/blog" className={linksClassesMobile}>
               Articles
             </a>
-            <a
-              href="#"
-              className="block text-gray-700 hover:text-purple-600 transition-colors font-medium"
-            >
+            <a href="#" className={linksClassesMobile}>
               Categories
             </a>
-            <a
-              href="#"
-              className="block text-gray-700 hover:text-purple-600 transition-colors font-medium"
-            >
+            <a href="/about" className={linksClassesMobile}>
               About
             </a>
           </div>
