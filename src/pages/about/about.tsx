@@ -1,7 +1,5 @@
-import EventDelegation from "./eventDelegation";
-
 const About = () => {
-  return <EventDelegation />;
+  return null;
 };
 
 export default About;
