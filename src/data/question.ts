@@ -665,4 +665,119 @@ export const questions: Question[] = [
       },
     ],
   },
+  {
+    id: 13,
+    category: "react",
+    question: "Create a custom hook to get the current window size in React.",
+    difficulty: "intermediate",
+    tags: ["react hooks", "custom hook", "window", "resize", "useEffect"],
+    isActive: true,
+    createdAt: "2026-01-28",
+    answer: [
+      {
+        id: "h1",
+        type: "heading",
+        level: 2,
+        text: "Problem Statement",
+      },
+      {
+        id: "p1",
+        type: "paragraph",
+        text: "The requirement is to create a reusable custom React hook that returns the current width and height of the browser window and updates the values whenever the window is resized.",
+      },
+      {
+        id: "h2",
+        type: "heading",
+        level: 2,
+        text: "Approach",
+      },
+      {
+        id: "l1",
+        type: "list",
+        items: [
+          "Use useState to store the window width and height",
+          "Use useEffect to register a resize event listener",
+          "Update state when the resize event fires",
+          "Clean up the event listener on component unmount",
+        ],
+      },
+      {
+        id: "h3",
+        type: "heading",
+        level: 2,
+        text: "Custom Hook Implementation",
+      },
+      {
+        id: "c1",
+        type: "code",
+        language: "javascript",
+        code: `import { useState, useEffect } from "react";
+
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return windowSize;
+}
+
+export default useWindowSize;`,
+      },
+      {
+        id: "h4",
+        type: "heading",
+        level: 2,
+        text: "Usage Example",
+      },
+      {
+        id: "c2",
+        type: "code",
+        language: "javascript",
+        code: `import useWindowSize from "./useWindowSize";
+
+function Example() {
+  const { width, height } = useWindowSize();
+
+  return (
+    <div>
+      <p>Width: {width}</p>
+      <p>Height: {height}</p>
+    </div>
+  );
+}`,
+      },
+      {
+        id: "h5",
+        type: "heading",
+        level: 2,
+        text: "Explanation",
+      },
+      {
+        id: "p2",
+        type: "paragraph",
+        text: "The custom hook uses useState to store window dimensions and useEffect to listen for resize events. Whenever the window is resized, the state is updated, triggering a re-render in components using the hook. Cleanup ensures there are no memory leaks.",
+      },
+      {
+        id: "n1",
+        type: "note",
+        text: "In server-side rendering environments like Next.js, access to the window object should be guarded to avoid runtime errors.",
+      },
+    ],
+  },
 ];
