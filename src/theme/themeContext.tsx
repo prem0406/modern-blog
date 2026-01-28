@@ -4,6 +4,7 @@ import {
   useState,
   type PropsWithChildren,
 } from "react";
+import useBrowserDarkMode from "./useBrowserDarkMode";
 
 type TThemeContext = {
   theme: ETheme;
@@ -23,7 +24,10 @@ const ThemeContext = createContext<TThemeContext>({
 });
 
 export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const [theme, setTheme] = useState(ETheme.DARK);
+  const { isBrowserDarkMode } = useBrowserDarkMode();
+  const [theme, setTheme] = useState(
+    isBrowserDarkMode ? ETheme.DARK : ETheme.LIGHT,
+  );
 
   const toggleTheme = () =>
     setTheme((prev) => (prev === ETheme.LIGHT ? ETheme.DARK : ETheme.LIGHT));
