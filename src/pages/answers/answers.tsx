@@ -35,7 +35,7 @@ const QuestionDetail = () => {
       </div>
 
       {/* Answer */}
-      <article className="shadow-xl rounded-2xl p-10">
+      <article className="shadow-xl rounded-2xl p-2 md:p-10">
         {question.answer.map((block) => (
           <AnswerBlockRenderer key={block.id} block={block} />
         ))}
