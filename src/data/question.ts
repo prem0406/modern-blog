@@ -780,4 +780,164 @@ function Example() {
       },
     ],
   },
+  {
+    id: 14,
+    category: "react",
+    question: "Explain event bubbling and capturing in React with examples",
+    difficulty: "intermediate",
+    tags: [
+      "react-events",
+      "event-bubbling",
+      "event-capturing",
+      "synthetic-events",
+      "event-delegation",
+    ],
+    isActive: true,
+    answer: [
+      {
+        id: "h1",
+        type: "heading",
+        level: 2,
+        text: "Event Bubbling in React",
+      },
+      {
+        id: "p1",
+        type: "paragraph",
+        text: "In React, events bubble by default. When an event occurs on a child element, it propagates upward to its parent components. React uses Synthetic Events which follow the same bubbling behavior as native browser events.",
+      },
+      {
+        id: "c1",
+        type: "code",
+        language: "jsx",
+        code: `function App() {
+  const handleParentClick = () => {
+    console.log("Parent clicked");
+  };
+
+  const handleChildClick = () => {
+    console.log("Child clicked");
+  };
+
+  return (
+    <div onClick={handleParentClick}>
+      <button onClick={handleChildClick}>Child</button>
+    </div>
+  );
+}
+
+export default App;`,
+      },
+      {
+        id: "n1",
+        type: "note",
+        text: "Clicking the button logs 'Child clicked' first, then 'Parent clicked' due to bubbling.",
+      },
+      {
+        id: "h2",
+        type: "heading",
+        level: 2,
+        text: "Stopping Event Propagation in React",
+      },
+      {
+        id: "p2",
+        type: "paragraph",
+        text: "You can stop event bubbling in React using stopPropagation on the Synthetic Event object. This prevents the event from reaching parent components.",
+      },
+      {
+        id: "c2",
+        type: "code",
+        language: "jsx",
+        code: `function App() {
+  const handleParentClick = () => {
+    console.log("Parent clicked");
+  };
+
+  const handleChildClick = (e) => {
+    e.stopPropagation();
+    console.log("Child clicked");
+  };
+
+  return (
+    <div onClick={handleParentClick}>
+      <button onClick={handleChildClick}>Child</button>
+    </div>
+  );
+}`,
+      },
+      {
+        id: "n2",
+        type: "note",
+        text: "Parent click handler will not execute because propagation is stopped at the child level.",
+      },
+      {
+        id: "h3",
+        type: "heading",
+        level: 2,
+        text: "Event Capturing in React",
+      },
+      {
+        id: "p3",
+        type: "paragraph",
+        text: "React supports event capturing using capture props like onClickCapture. In capturing, the event travels from parent to child before reaching the target.",
+      },
+      {
+        id: "c3",
+        type: "code",
+        language: "jsx",
+        code: `function App() {
+  return (
+    <div
+      onClickCapture={() => console.log("Parent capture")}
+      onClick={() => console.log("Parent bubble")}
+    >
+      <button onClick={() => console.log("Child click")}>
+        Child
+      </button>
+    </div>
+  );
+}`,
+      },
+      {
+        id: "n3",
+        type: "note",
+        text: "Output order: Parent capture → Child click → Parent bubble.",
+      },
+      {
+        id: "h4",
+        type: "heading",
+        level: 2,
+        text: "Event Delegation in React",
+      },
+      {
+        id: "p4",
+        type: "paragraph",
+        text: "React automatically implements event delegation by attaching a single listener at the root. This improves performance and avoids attaching listeners to every DOM node.",
+      },
+      {
+        id: "c4",
+        type: "code",
+        language: "jsx",
+        code: `function App() {
+  const handleClick = (e) => {
+    if (e.target.tagName === "BUTTON") {
+      console.log(e.target.innerText);
+    }
+  };
+
+  return (
+    <div onClick={handleClick}>
+      <button>Save</button>
+      <button>Delete</button>
+      <button>Update</button>
+    </div>
+  );
+}`,
+      },
+      {
+        id: "n4",
+        type: "note",
+        text: "This works because React relies on bubbling and event delegation internally.",
+      },
+    ],
+  },
 ];
