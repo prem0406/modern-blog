@@ -1,8 +1,10 @@
 import { useParams } from "react-router";
 import { questions } from "../../data/question";
 import AnswerBlockRenderer from "./answerBlockRenderer";
+import { useThemeContext } from "../../theme/themeContext";
 
 const QuestionDetail = () => {
+  const { isDarkMode } = useThemeContext();
   const { id } = useParams();
   const question = questions.find((q) => q.id === Number(id));
 
@@ -18,13 +20,15 @@ const QuestionDetail = () => {
           {question.category.toUpperCase()}
         </span>
 
-        <h1 className="text-4xl font-bold text-grey-900 leading-tight">
+        <h1
+          className={`text-4xl font-bold ${isDarkMode ? "text-gray-200" : "text-grey-900"}  leading-tight`}
+        >
           {question.question}
         </h1>
 
         <div className="mt-4 text-sm text-gray-400">
           Difficulty:{" "}
-          <span className="text-white font-bold bg-orange-400 border-solid rounded-sm p-1">
+          <span className="text-white text-xs font-bold bg-orange-400 border-solid rounded-sm p-1">
             {question.difficulty.toUpperCase()}
           </span>
         </div>

@@ -1,6 +1,7 @@
 import { type FC } from "react";
 import { Tag, Layers } from "lucide-react";
 import type { Question } from "../../types/question";
+import { useThemeContext } from "../../theme/themeContext";
 
 const categoryGradient: Record<Question["category"], string> = {
   react: "from-blue-500 to-cyan-500",
@@ -19,23 +20,31 @@ interface QuestionCardProps {
 }
 
 const QuestionCard: FC<QuestionCardProps> = ({ question }) => {
+  const { isDarkMode } = useThemeContext();
+
   return (
-    <div className="relative group overflow-hidden  bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500">
+    <div
+      className={`relative group overflow-hidden  ${isDarkMode ? "bg-gray-900" : "bg-white"} rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500`}
+    >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-blue-100 via-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div
+        className={`absolute inset-0 ${isDarkMode ? "bg-linear-to-t from-gray-700 via-gray-800 to-transparent" : "bg-linear-to-t from-blue-100 via-blue-50 to-transparent"} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+      />
 
       <div className="relative p-8 z-10">
         {/* Category */}
         <span
           className={`inline-block px-2 py-1 bg-linear-to-r ${
             categoryGradient[question.category]
-          } text-white text-xs font-semibold rounded-full mb-6`}
+          } ${isDarkMode ? "text-gray-200" : "text-white"} text-xs font-semibold rounded-full mb-6`}
         >
           {question.category.toUpperCase()}
         </span>
 
         {/* Question */}
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
+        <h3
+          className={`text-xl font-bold ${isDarkMode ? "text-gray-200" : "text-gray-900"} mb-3 group-hover:text-purple-600 transition-colors`}
+        >
           {question.question}
         </h3>
 

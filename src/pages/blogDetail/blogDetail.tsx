@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { questions } from "../../data/question";
 import QuestionCard from "./questionCard";
+import { useThemeContext } from "../../theme/themeContext";
 
 // const questions: Question[] = [
 //   {
@@ -217,9 +218,13 @@ import QuestionCard from "./questionCard";
 // ];
 
 const BlogDetail = () => {
+  const { isDarkMode } = useThemeContext();
+
   return (
-    <section className="max-w-7xl mx-auto px-6 py-30">
-      <h2 className="text-4xl font-bold text-gray-900 mb-12">
+    <section className={`max-w-7xl mx-auto px-6 py-30 `}>
+      <h2
+        className={`text-4xl font-bold ${isDarkMode ? "text-gray-200" : "text-gray-900"} mb-12`}
+      >
         Interview Questions
       </h2>
 
@@ -227,7 +232,7 @@ const BlogDetail = () => {
         {questions
           .filter((q) => q.isActive !== false)
           .map((q) => (
-            <Link to={`/question/${q.id}`}>
+            <Link to={`/question/${q.id}`} key={q.id}>
               <QuestionCard key={q.id} question={q} />
             </Link>
           ))}

@@ -1,18 +1,20 @@
 import Footer from "./home/footer";
 import Header from "./home/header";
 import { Router } from "./router/router";
-import { ThemeProvider } from "./theme/themeContext";
+import { useThemeContext } from "./theme/themeContext";
 
 //TODO: add dark mode
 function App() {
+  const { isDarkMode } = useThemeContext();
+  const bgColor = isDarkMode
+    ? "min-h-screen bg-linear-to-br from-gray-800 via-gray-900 to-gray-950"
+    : "min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50";
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50">
-        <Header />
-        <Router />
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <div className={bgColor}>
+      <Header />
+      <Router />
+      <Footer />
+    </div>
   );
 }
 
