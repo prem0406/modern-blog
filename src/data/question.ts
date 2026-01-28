@@ -543,7 +543,7 @@ export const questions: Question[] = [
         id: "11-22",
         type: "code",
         language: "javascript",
-        code: 'delete p.getSalary;\np.getSalary(); // "This is a prototype function"',
+        code: 'delete p.getSalary;\np.getSalary(); // "This is a prototype function" \n\n//OR you can do like this \np.__proto__.getSalary(); // "This is a prototype function',
       },
       {
         id: "11-23",
@@ -565,6 +565,103 @@ export const questions: Question[] = [
         id: "11-25",
         type: "note",
         text: "This behavior is commonly referred to as method shadowing, where an instance property hides a prototype property with the same name.",
+      },
+    ],
+  },
+  {
+    id: 12,
+    category: "javascript",
+    question:
+      "What is the difference between __proto__ and prototype in JavaScript?",
+    difficulty: "intermediate",
+    tags: ["javascript", "prototypes", "inheritance", "__proto__", "prototype"],
+    answer: [
+      {
+        id: "1",
+        type: "heading",
+        level: 2,
+        text: "Understanding JavaScript Prototypes",
+      },
+      {
+        id: "2",
+        type: "paragraph",
+        text: "JavaScript uses prototype-based inheritance, which means objects can inherit properties and methods from other objects. Two important terms in this mechanism are prototype and __proto__. Although they are related, they serve different purposes and exist in different places.",
+      },
+      {
+        id: "3",
+        type: "heading",
+        level: 3,
+        text: "What is prototype?",
+      },
+      {
+        id: "4",
+        type: "paragraph",
+        text: "The prototype property exists on constructor functions. It is an object that defines properties and methods that should be shared across all instances created using that constructor. When you add methods to a constructor's prototype, all instances automatically get access to those methods.",
+      },
+      {
+        id: "5",
+        type: "code",
+        language: "javascript",
+        code: "function Person(name) {\n  this.name = name;\n}\n\nPerson.prototype.sayHello = function () {\n  console.log(`Hello, my name is ${this.name}`);\n};",
+      },
+      {
+        id: "6",
+        type: "paragraph",
+        text: "In this example, sayHello is defined once on Person.prototype and shared by all Person instances, which makes it memory efficient.",
+      },
+      {
+        id: "7",
+        type: "heading",
+        level: 3,
+        text: "What is __proto__?",
+      },
+      {
+        id: "8",
+        type: "paragraph",
+        text: "__proto__ is an internal property that exists on every JavaScript object. It points to the prototype object of the constructor that created the object. JavaScript uses __proto__ internally to look up properties and methods when they are not found directly on the object.",
+      },
+      {
+        id: "9",
+        type: "code",
+        language: "javascript",
+        code: 'const p1 = new Person("Prem");\n\np1.__proto__ === Person.prototype; // true',
+      },
+      {
+        id: "10",
+        type: "paragraph",
+        text: "When a method is called on an object, JavaScript first checks the object itself. If not found, it follows the __proto__ chain until it finds the property or reaches null.",
+      },
+      {
+        id: "11",
+        type: "heading",
+        level: 3,
+        text: "Relationship Between prototype and __proto__",
+      },
+      {
+        id: "12",
+        type: "paragraph",
+        text: "The prototype property is used during object creation to set up inheritance, while __proto__ is used at runtime for property lookup. An object's __proto__ always points to its constructor's prototype.",
+      },
+      {
+        id: "13",
+        type: "heading",
+        level: 3,
+        text: "Key Differences",
+      },
+      {
+        id: "14",
+        type: "list",
+        items: [
+          "prototype exists on constructor functions, while __proto__ exists on all objects",
+          "prototype defines shared behavior, while __proto__ links an object to its prototype",
+          "prototype is used when creating objects, while __proto__ is used when accessing properties",
+          "prototype should be used directly, while __proto__ should generally be avoided in favor of safer APIs",
+        ],
+      },
+      {
+        id: "15",
+        type: "note",
+        text: "Best practice is to define shared methods using prototype and avoid directly manipulating __proto__. Use Object.getPrototypeOf() instead when you need to access an object's prototype.",
       },
     ],
   },
