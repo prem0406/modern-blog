@@ -1,0 +1,26 @@
+# Normalize line endings for all text files
+* text=auto eol=lf
+
+# Explicitly mark source files as text
+*.ts   text
+*.tsx  text
+*.js   text
+*.jsx  text
+*.json text
+*.css  text
+*.scss text
+*.md   text
+*.html text
+*.yml  text
+*.yaml text
+
+# Shell scripts should always use LF
+*.sh text eol=lf
+
+# Binary files (never modify line endings)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
