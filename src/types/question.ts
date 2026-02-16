@@ -1,14 +1,9 @@
+import type { Timestamp } from "firebase/firestore";
 import type { AnswerBlock } from "./answer";
 
-export type QuestionCategory =
-  | "react"
-  | "react native"
-  | "javascript";
+export type QuestionCategory = "react" | "react native" | "javascript";
 
-export type QuestionDifficulty =
-  | "beginner"
-  | "intermediate"
-  | "advanced";
+export type QuestionDifficulty = "beginner" | "intermediate" | "advanced";
 
 export interface Question {
   id: number;
@@ -18,6 +13,6 @@ export interface Question {
   difficulty: QuestionDifficulty;
   tags: string[];
   isActive?: boolean;
-  createdAt?: string;
-  updatedAt?: string;
+  createdAt?: Timestamp;
+  updatedAt?: Timestamp;
 }
