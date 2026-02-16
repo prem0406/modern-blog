@@ -1,6 +1,7 @@
 import { Menu, Search, X } from "lucide-react";
 import { useState } from "react";
 import { useThemeContext } from "../theme/themeContext";
+import { Link } from "react-router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,18 +32,18 @@ const Header = () => {
               ModernBlog
             </h1> */}
             <div className="hidden md:flex space-x-6">
-              <a href="/" className={linksClasses}>
+              <Link to="/" className={linksClasses}>
                 Home
-              </a>
-              <a href="/blog" className={linksClasses}>
+              </Link>
+              <Link to="/blog" className={linksClasses}>
                 Articles
-              </a>
-              <a href="#" className={linksClasses}>
+              </Link>
+              <Link to="#" className={linksClasses}>
                 Categories
-              </a>
-              <a href="/about" className={linksClasses}>
+              </Link>
+              <Link to="/about" className={linksClasses}>
                 About
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex items-center space-x-4">
@@ -76,7 +77,19 @@ const Header = () => {
           className={`md:hidden  opacity-90 border-t ${isDarkMode ? "border-gray-700" : "border-gray-100"} ${isDarkMode ? "bg-gray-850" : "bg-white/80"} backdrop-blur-md`}
         >
           <div className="px-4 py-4 space-y-3 flex flex-col items-center">
-            <a href="/" className={linksClassesMobile}>
+            <Link to="/" className={linksClassesMobile}>
+              Home
+            </Link>
+            <Link to="/blog" className={linksClassesMobile}>
+              Articles
+            </Link>
+            <Link to="#" className={linksClassesMobile}>
+              Categories
+            </Link>
+            <Link to="/about" className={linksClassesMobile}>
+              About
+            </Link>
+            {/* <a href="/" className={linksClassesMobile}>
               Home
             </a>
             <a href="/blog" className={linksClassesMobile}>
@@ -87,7 +100,7 @@ const Header = () => {
             </a>
             <a href="/about" className={linksClassesMobile}>
               About
-            </a>
+            </a> */}
           </div>
         </div>
       )}

@@ -1,5 +1,3 @@
-import Footer from "./home/footer";
-import Header from "./home/header";
 import { Router } from "./router/router";
 import { useThemeContext } from "./theme/themeContext";
 
@@ -11,9 +9,7 @@ function App() {
     : "min-h-screen bg-linear-to-br from-slate-50 via-white to-blue-50";
   return (
     <div className={bgColor}>
-      <Header />
       <Router />
-      <Footer />
     </div>
   );
 }
