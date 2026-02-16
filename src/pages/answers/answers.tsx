@@ -1,12 +1,25 @@
 import { useParams } from "react-router";
-import { questions } from "../../data/question";
 import AnswerBlockRenderer from "./answerBlockRenderer";
 import { useThemeContext } from "../../theme/themeContext";
+import { getQuestionById } from "../../firebase/firestore.util";
+import { useEffect, useState } from "react";
+import type { Question } from "../../types/question";
 
 const QuestionDetail = () => {
   const { isDarkMode } = useThemeContext();
   const { id } = useParams();
-  const question = questions.find((q) => q.id === Number(id));
+  const [question, setQuestion] = useState<Question | null>(null);
+
+  useEffect(() => {
+    if (!id) return;
+    const fetchListById = async () => {
+      const res = await getQuestionById(id);
+      console.log("Response: ", res);
+      setQuestion(res);
+    };
+
+    fetchListById();
+  }, [id]);
 
   if (!question || question.isActive === false) {
     return <div className="text-white p-10">Question not found</div>;

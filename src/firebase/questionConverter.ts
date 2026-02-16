@@ -20,7 +20,7 @@ export const questionConverter: FirestoreDataConverter<Question> = {
     const data = snapshot.data(options);
 
     return {
-      id: data.id,
+      id: snapshot.id, // use firestore id
       category: data.category,
       question: data.question,
       answer: data.answer,

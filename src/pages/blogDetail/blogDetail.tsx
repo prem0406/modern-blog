@@ -1,7 +1,10 @@
 import { Link } from "react-router";
-import { questions } from "../../data/question";
+// import { questions } from "../../data/question";
 import QuestionCard from "./questionCard";
 import { useThemeContext } from "../../theme/themeContext";
+import { useEffect, useState } from "react";
+import { getQuestions } from "../../firebase/firestore.util";
+import { type Question } from "../../types/question";
 
 // const questions: Question[] = [
 //   {
@@ -219,6 +222,16 @@ import { useThemeContext } from "../../theme/themeContext";
 
 const BlogDetail = () => {
   const { isDarkMode } = useThemeContext();
+  const [questions, setQuestions] = useState<Question[]>([]);
+
+  useEffect(() => {
+    const fetchList = async () => {
+      const res = await getQuestions();
+      setQuestions(res);
+    };
+
+    fetchList();
+  }, []);
 
   return (
     <section className={`max-w-7xl mx-auto px-6 py-30 `}>
