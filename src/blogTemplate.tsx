@@ -42,7 +42,9 @@ export const BlogTemplate = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2
+            className={`text-5xl sm:text-6xl lg:text-7xl font-bold ${isDarkMode ? "text-gray-200" : "text-gray-900"} mb-6 leading-tight`}
+          >
             Discover Stories That
             <span className="block bg-linear-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
               Inspire & Inform
