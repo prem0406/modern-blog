@@ -75,7 +75,7 @@ import { type Question } from "../types/question";
 
 export const questions: Question[] = [
   {
-    id: 1,
+    id: "1",
     category: "javascript",
     question: "What is the Event Loop?",
     difficulty: "intermediate",
@@ -110,7 +110,7 @@ export const questions: Question[] = [
   },
 
   {
-    id: 2,
+    id: "2",
     category: "react native",
     question: "How does a React Native app work?",
     difficulty: "beginner",
@@ -134,7 +134,7 @@ export const questions: Question[] = [
   },
 
   {
-    id: 3,
+    id: "3",
     category: "react native",
     question: "Difference between ScrollView and FlatList",
     difficulty: "beginner",
@@ -158,7 +158,7 @@ export const questions: Question[] = [
   },
 
   {
-    id: 4,
+    id: "4",
     category: "react native",
     question:
       "How do you handle offline data storage and sync in React Native?",
@@ -183,7 +183,7 @@ export const questions: Question[] = [
   },
 
   {
-    id: 5,
+    id: "5",
     category: "react",
     question: "Difference between Context API and Redux",
     difficulty: "intermediate",
@@ -207,7 +207,7 @@ export const questions: Question[] = [
   },
 
   {
-    id: 6,
+    id: "6",
     category: "react native",
     question: "How does Hermes improve React Native performance?",
     difficulty: "intermediate",
@@ -231,7 +231,7 @@ export const questions: Question[] = [
   },
 
   {
-    id: 7,
+    id: "7",
     category: "react native",
     question: "What is the purpose of babel.config.js in React Native?",
     difficulty: "beginner",
@@ -255,7 +255,7 @@ export const questions: Question[] = [
   },
 
   {
-    id: 8,
+    id: "8",
     category: "javascript",
     question: "Difference between shallow copy and deep copy",
     difficulty: "intermediate",
@@ -278,14 +278,12 @@ export const questions: Question[] = [
     ],
   },
   {
-    id: 9,
+    id: "9",
     category: "react",
     question: "Context API vs Redux, which do you prefer and why?",
     difficulty: "intermediate",
     tags: ["state-management", "redux", "context"],
     isActive: true,
-    createdAt: "2026-01-16",
-    updatedAt: "2026-01-16",
     answer: [
       {
         id: "h1",
@@ -346,7 +344,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    id: 10,
+    id: "10",
     category: "javascript",
     question: "What are prototypes in JavaScript?",
     difficulty: "intermediate",
@@ -412,7 +410,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    id: 11,
+    id: "11",
     category: "javascript",
     question:
       "Explain what happens when a method is defined both inside a constructor function and on its prototype. Why does one override the other?",
@@ -569,7 +567,7 @@ export const questions: Question[] = [
     ],
   },
   {
-    id: 12,
+    id: "12",
     category: "javascript",
     question:
       "What is the difference between __proto__ and prototype in JavaScript?",
@@ -666,13 +664,12 @@ export const questions: Question[] = [
     ],
   },
   {
-    id: 13,
+    id: "13",
     category: "react",
     question: "Create a custom hook to get the current window size in React.",
     difficulty: "intermediate",
     tags: ["react hooks", "custom hook", "window", "resize", "useEffect"],
     isActive: true,
-    createdAt: "2026-01-28",
     answer: [
       {
         id: "h1",
@@ -781,7 +778,7 @@ function Example() {
     ],
   },
   {
-    id: 14,
+    id: "14",
     category: "react",
     question: "Explain event bubbling and capturing in React with examples",
     difficulty: "intermediate",
