@@ -4,7 +4,7 @@ import { useThemeContext } from "../../theme/themeContext";
 
 import { useFetchQuestions } from "../../hooks/useFetchQuestions";
 
-const BlogDetail = () => {
+const QuestionList = () => {
   const { isDarkMode } = useThemeContext();
   const { questions } = useFetchQuestions();
 
@@ -29,4 +29,4 @@ const BlogDetail = () => {
   );
 };
 
-export default BlogDetail;
+export default QuestionList;

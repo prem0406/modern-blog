@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import { BlogTemplate } from "../blogTemplate";
-import BlogDetail from "../pages/blogDetail/blogDetail";
 import Answers from "../pages/answers/answers";
 import About from "../pages/about/about";
 import Header from "../home/header";
 import Footer from "../home/footer";
 import QuestionForm from "../pages/questionForm/questionForm";
+import QuestionList from "../pages/interviewQuestions/questionList";
 
 export const Router = () => {
   return (
@@ -13,7 +13,7 @@ export const Router = () => {
       <Header />
       <Routes>
         <Route path="/" element={<BlogTemplate />} />
-        <Route path="/blog" element={<BlogDetail />} />
+        <Route path="/questions" element={<QuestionList />} />
         <Route path="/question/:id" element={<Answers />} />
         <Route path="/about" element={<About />} />
         <Route path="/form" element={<QuestionForm />} />

@@ -16,7 +16,7 @@ const QuestionDetail = () => {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-20">
-      <Link to="/blog" className="flex mb-6">
+      <Link to="/questions" className="flex mb-6">
         <ChevronLeft
           className={`${isDarkMode ? "text-gray-200" : "text-gray-900"} font-bold`}
         />

@@ -35,7 +35,7 @@ const Header = () => {
               <Link to="/" className={linksClasses}>
                 Home
               </Link>
-              <Link to="/blog" className={linksClasses}>
+              <Link to="/questions" className={linksClasses}>
                 Articles
               </Link>
               <Link to="#" className={linksClasses}>
@@ -89,7 +89,7 @@ const Header = () => {
             <Link to="/" className={linksClassesMobile}>
               Home
             </Link>
-            <Link to="/blog" className={linksClassesMobile}>
+            <Link to="/questions" className={linksClassesMobile}>
               Articles
             </Link>
             <Link to="#" className={linksClassesMobile}>
