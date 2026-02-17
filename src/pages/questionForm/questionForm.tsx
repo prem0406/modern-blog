@@ -43,7 +43,7 @@ const QuestionForm = () => {
 
   const handleSubmit = async () => {
     const question: Omit<Question, "createdAt" | "updatedAt"> = {
-      id: Date.now(),
+      id: Date.now().toString(),
       category,
       question: questionText,
       difficulty,
@@ -59,14 +59,16 @@ const QuestionForm = () => {
   const { isDarkMode } = useThemeContext();
 
   return (
-    <div className="max-w-4xl mx-auto p-8 py-32 bg-gray-50 min-h-screen">
-      <div className="bg-white shadow-lg rounded-2xl p-8 space-y-6">
+    <div className={`max-w-4xl mx-auto p-8 py-32 min-h-screen`}>
+      <div
+        className={`${isDarkMode ? "bg-gray-800" : "bg-white"} shadow-lg rounded-2xl p-8 space-y-6`}
+      >
         <h2 className="text-2xl font-semibold text-gray-800">
           Create Question
         </h2>
 
         <input
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          className={`w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${isDarkMode ? "text-gray-200" : "text-gray-900"}`}
           placeholder="Enter question title"
           value={questionText}
           onChange={(e) => setQuestionText(e.target.value)}
@@ -74,7 +76,7 @@ const QuestionForm = () => {
 
         <div className="grid grid-cols-2 gap-4">
           <select
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500"
+            className={`border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 ${isDarkMode ? "text-gray-200" : "text-gray-900"}`}
             value={category}
             onChange={(e) => setCategory(e.target.value as never)}
           >
@@ -84,7 +86,7 @@ const QuestionForm = () => {
           </select>
 
           <select
-            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500"
+            className={`border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 ${isDarkMode ? "text-gray-200" : "text-gray-900"}`}
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value as never)}
           >
@@ -95,7 +97,7 @@ const QuestionForm = () => {
         </div>
 
         <input
-          className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500"
+          className={`w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${isDarkMode ? "text-gray-200" : "text-gray-900"}`}
           placeholder="Tags (comma separated)"
           value={tags}
           onChange={(e) => setTags(e.target.value)}

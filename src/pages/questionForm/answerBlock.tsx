@@ -1,3 +1,4 @@
+import { useThemeContext } from "../../theme/themeContext";
 import type { AnswerBlock } from "../../types/answer";
 
 interface Props {
@@ -7,10 +8,16 @@ interface Props {
 }
 
 const AnswerBlockEditor = ({ block, onChange, onDelete }: Props) => {
+  const { isDarkMode } = useThemeContext();
+
   return (
-    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 shadow-sm space-y-4">
+    <div
+      className={`${isDarkMode ? "bg-gray-800 " : "bg-gray-50 "}border border-gray-200 rounded-xl p-6 shadow-sm space-y-4`}
+    >
       <div className="flex justify-between items-center">
-        <span className="text-sm font-medium text-gray-500 uppercase">
+        <span
+          className={`text-sm font-medium ${isDarkMode ? "text-gray-200" : "text-gray-500"} uppercase`}
+        >
           {block.type}
         </span>
         <button
@@ -24,7 +31,7 @@ const AnswerBlockEditor = ({ block, onChange, onDelete }: Props) => {
       {block.type === "heading" && (
         <div className="space-y-3">
           <select
-            className="border border-gray-300 rounded-lg px-3 py-2"
+            className={`border border-gray-300 rounded-lg px-3 py-2 ${isDarkMode ? "text-gray-200" : "text-gray-900"}`}
             value={block.level}
             onChange={(e) =>
               onChange({ ...block, level: Number(e.target.value) as 2 | 3 | 4 })
@@ -36,7 +43,7 @@ const AnswerBlockEditor = ({ block, onChange, onDelete }: Props) => {
           </select>
 
           <input
-            className="w-full border border-gray-300 rounded-lg px-3 py-2"
+            className={`w-full border border-gray-300 rounded-lg px-3 py-2 ${isDarkMode ? "text-gray-200" : "text-gray-900"}`}
             value={block.text}
             onChange={(e) => onChange({ ...block, text: e.target.value })}
           />
@@ -45,7 +52,7 @@ const AnswerBlockEditor = ({ block, onChange, onDelete }: Props) => {
 
       {block.type === "paragraph" && (
         <textarea
-          className="w-full border border-gray-300 rounded-lg px-3 py-2 min-h-25"
+          className={`w-full border border-gray-300 rounded-lg px-3 py-2 ${isDarkMode ? "text-gray-200" : "text-gray-900"} min-h-25`}
           value={block.text}
           onChange={(e) => onChange({ ...block, text: e.target.value })}
         />
@@ -56,7 +63,7 @@ const AnswerBlockEditor = ({ block, onChange, onDelete }: Props) => {
           {block.items.map((item, index) => (
             <input
               key={index}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2"
+              className={`w-full border border-gray-300 rounded-lg px-3 py-2 ${isDarkMode ? "text-gray-200" : "text-gray-900"}`}
               value={item}
               onChange={(e) => {
                 const newItems = [...block.items];
@@ -77,7 +84,7 @@ const AnswerBlockEditor = ({ block, onChange, onDelete }: Props) => {
       {block.type === "code" && (
         <div className="space-y-3">
           <input
-            className="border border-gray-300 rounded-lg px-3 py-2"
+            className={`border border-gray-300 rounded-lg px-3 py-2 ${isDarkMode ? "text-gray-200" : "text-gray-900"}`}
             value={block.language}
             onChange={(e) => onChange({ ...block, language: e.target.value })}
           />
@@ -91,7 +98,7 @@ const AnswerBlockEditor = ({ block, onChange, onDelete }: Props) => {
 
       {block.type === "note" && (
         <textarea
-          className="w-full border-l-4 border-yellow-400 bg-yellow-50 rounded-lg px-3 py-2"
+          className={`w-full border-l-16 ${isDarkMode ? "border-gray-700" : "border-yellow-400"} ${isDarkMode ? "bg-gray-700" : "bg-yellow-50"} rounded-lg px-3 py-2`}
           value={block.text}
           onChange={(e) => onChange({ ...block, text: e.target.value })}
         />
