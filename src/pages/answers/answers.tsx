@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import AnswerBlockRenderer from "./answerBlockRenderer";
 import { useThemeContext } from "../../theme/themeContext";
 
@@ -8,6 +8,7 @@ import { ChevronLeft } from "lucide-react";
 const QuestionDetail = () => {
   const { isDarkMode } = useThemeContext();
   const { id } = useParams();
+  const navigate = useNavigate();
   const { question } = useFetchQuestionById(id);
 
   if (!question || question.isActive === false) {
@@ -16,7 +17,7 @@ const QuestionDetail = () => {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-20">
-      <Link to="/questions" className="flex mb-6">
+      <button onClick={() => navigate(-1)} className="flex mb-6 cursor-pointer">
         <ChevronLeft
           className={`${isDarkMode ? "text-gray-200" : "text-gray-900"} font-bold`}
         />
@@ -25,7 +26,7 @@ const QuestionDetail = () => {
         >
           Go Back
         </span>
-      </Link>
+      </button>
       <div className="mb-12">
         <span className="inline-block px-4 py-2 bg-linear-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full mb-4">
           {question.category.toUpperCase()}
