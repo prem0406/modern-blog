@@ -1,8 +1,9 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import AnswerBlockRenderer from "./answerBlockRenderer";
 import { useThemeContext } from "../../theme/themeContext";
 
 import { useFetchQuestionById } from "../../hooks/useFetchQuestionById";
+import { ChevronLeft } from "lucide-react";
 
 const QuestionDetail = () => {
   const { isDarkMode } = useThemeContext();
@@ -15,6 +16,14 @@ const QuestionDetail = () => {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-20">
+      <Link to="/blog" className="flex">
+        <ChevronLeft className="font-bold" />
+        <span
+          className={`${isDarkMode ? "text-gray-200" : "text-gray-900"} font-semibold mb-6`}
+        >
+          Go Back
+        </span>
+      </Link>
       <div className="mb-12">
         <span className="inline-block px-4 py-2 bg-linear-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full mb-4">
           {question.category.toUpperCase()}
