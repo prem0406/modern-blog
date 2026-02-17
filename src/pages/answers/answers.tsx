@@ -1,25 +1,13 @@
 import { useParams } from "react-router";
 import AnswerBlockRenderer from "./answerBlockRenderer";
 import { useThemeContext } from "../../theme/themeContext";
-import { getQuestionById } from "../../firebase/firestore.util";
-import { useEffect, useState } from "react";
-import type { Question } from "../../types/question";
+
+import { useFetchQuestionById } from "../../hooks/useFetchQuestionById";
 
 const QuestionDetail = () => {
   const { isDarkMode } = useThemeContext();
   const { id } = useParams();
-  const [question, setQuestion] = useState<Question | null>(null);
-
-  useEffect(() => {
-    if (!id) return;
-    const fetchListById = async () => {
-      const res = await getQuestionById(id);
-      console.log("Response: ", res);
-      setQuestion(res);
-    };
-
-    fetchListById();
-  }, [id]);
+  const { question } = useFetchQuestionById(id);
 
   if (!question || question.isActive === false) {
     return <div className="text-white p-10">Question not found</div>;
@@ -27,7 +15,6 @@ const QuestionDetail = () => {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-20">
-      {/* Header */}
       <div className="mb-12">
         <span className="inline-block px-4 py-2 bg-linear-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full mb-4">
           {question.category.toUpperCase()}
