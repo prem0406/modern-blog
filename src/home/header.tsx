@@ -1,4 +1,4 @@
-import { Menu, Search, X } from "lucide-react";
+import { Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { useThemeContext } from "../theme/themeContext";
 import { Link } from "react-router";
@@ -49,18 +49,24 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="hidden md:block px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 font-medium"
+              className={`p-2 ${isDarkMode ? "text-gray-100" : "text-gray-900"} rounded-full ${isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-100"} transition-all duration-300 font-medium`}
             >
-              Toggle Theme
+              {isDarkMode ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
             </button>
-            <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
-              <Search className="w-5 h-5 text-gray-600" />
+            <button
+              className={`p-2 ${isDarkMode ? "text-gray-100" : "text-gray-900"} rounded-full ${isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-100"} transition-colors`}
+            >
+              <Search className="w-5 h-5" />
             </button>
             <button className="hidden md:block px-6 py-2 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 font-medium">
               Subscribe
             </button>
             <button
-              className="md:hidden p-2 hover:bg-gray-100 rounded-full transition-colors"
+              className={`md:hidden p-2 ${isDarkMode ? "text-gray-100" : "text-gray-900"} ${isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-100"}  rounded-full transition-colors `}
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? (
@@ -76,7 +82,10 @@ const Header = () => {
         <div
           className={`md:hidden  opacity-90 border-t ${isDarkMode ? "border-gray-700" : "border-gray-100"} ${isDarkMode ? "bg-gray-850" : "bg-white/80"} backdrop-blur-md`}
         >
-          <div className="px-4 py-4 space-y-3 flex flex-col items-center">
+          <div
+            className="px-4 py-4 space-y-3 flex flex-col items-center"
+            onClick={() => setMenuOpen(false)}
+          >
             <Link to="/" className={linksClassesMobile}>
               Home
             </Link>
@@ -89,18 +98,6 @@ const Header = () => {
             <Link to="/about" className={linksClassesMobile}>
               About
             </Link>
-            {/* <a href="/" className={linksClassesMobile}>
-              Home
-            </a>
-            <a href="/blog" className={linksClassesMobile}>
-              Articles
-            </a>
-            <a href="#" className={linksClassesMobile}>
-              Categories
-            </a>
-            <a href="/about" className={linksClassesMobile}>
-              About
-            </a> */}
           </div>
         </div>
       )}

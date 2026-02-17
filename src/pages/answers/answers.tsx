@@ -16,10 +16,12 @@ const QuestionDetail = () => {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-20">
-      <Link to="/blog" className="flex">
-        <ChevronLeft className="font-bold" />
+      <Link to="/blog" className="flex mb-6">
+        <ChevronLeft
+          className={`${isDarkMode ? "text-gray-200" : "text-gray-900"} font-bold`}
+        />
         <span
-          className={`${isDarkMode ? "text-gray-200" : "text-gray-900"} font-semibold mb-6`}
+          className={`${isDarkMode ? "text-gray-200" : "text-gray-900"} font-semibold `}
         >
           Go Back
         </span>
