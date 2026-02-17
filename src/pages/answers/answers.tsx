@@ -3,7 +3,11 @@ import AnswerBlockRenderer from "./answerBlockRenderer";
 import { useThemeContext } from "../../theme/themeContext";
 
 import { useFetchQuestionById } from "../../hooks/useFetchQuestionById";
-import { ChevronLeft } from "lucide-react";
+import { ArrowLeft, Layers } from "lucide-react";
+import {
+  categoryGradient,
+  difficultyColor,
+} from "../../helpers/colors.helpers";
 
 const QuestionDetail = () => {
   const { isDarkMode } = useThemeContext();
@@ -17,8 +21,11 @@ const QuestionDetail = () => {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-20">
-      <button onClick={() => navigate(-1)} className="flex mb-6 cursor-pointer">
-        <ChevronLeft
+      <button
+        onClick={() => navigate(-1)}
+        className="flex mb-6 cursor-pointer gap-0.5"
+      >
+        <ArrowLeft
           className={`${isDarkMode ? "text-gray-200" : "text-gray-900"} font-bold`}
         />
         <span
@@ -28,7 +35,11 @@ const QuestionDetail = () => {
         </span>
       </button>
       <div className="mb-12">
-        <span className="inline-block px-4 py-2 bg-linear-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full mb-4">
+        <span
+          className={`inline-block px-2 py-1 bg-linear-to-r ${
+            categoryGradient[question.category]
+          } ${isDarkMode ? "text-gray-200" : "text-white"} text-sm font-semibold rounded-full mb-1`}
+        >
           {question.category.toUpperCase()}
         </span>
 
@@ -38,10 +49,10 @@ const QuestionDetail = () => {
           {question.question}
         </h1>
 
-        <div className="mt-4 text-sm text-gray-400">
-          Difficulty:{" "}
-          <span className="text-white text-xs font-bold bg-orange-400 border-solid rounded-sm p-1">
-            {question.difficulty.toUpperCase()}
+        <div className="mt-4 flex items-center gap-2">
+          <Layers className="w-4 h-4 text-gray-300" />
+          <span className={difficultyColor[question.difficulty]}>
+            {question.difficulty}
           </span>
         </div>
       </div>

@@ -2,18 +2,10 @@ import { type FC } from "react";
 import { Tag, Layers } from "lucide-react";
 import type { Question } from "../../types/question";
 import { useThemeContext } from "../../theme/themeContext";
-
-const categoryGradient: Record<Question["category"], string> = {
-  react: "from-blue-500 to-cyan-500",
-  "react native": "from-purple-500 to-pink-500",
-  javascript: "from-yellow-500 to-orange-500",
-};
-
-const difficultyColor: Record<Question["difficulty"], string> = {
-  beginner: "text-green-400",
-  intermediate: "text-yellow-400",
-  advanced: "text-red-400",
-};
+import {
+  categoryGradient,
+  difficultyColor,
+} from "../../helpers/colors.helpers";
 
 interface QuestionCardProps {
   question: Question;
