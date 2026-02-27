@@ -109,6 +109,17 @@ const QuestionForm = () => {
           onChange={(e) => setTags(e.target.value)}
         />
 
+        <div className="space-y-6 pt-4">
+          {blocks.map((block) => (
+            <AnswerBlockEditor
+              key={block.id}
+              block={block}
+              onChange={updateBlock}
+              onDelete={() => removeBlock(block.id)}
+            />
+          ))}
+        </div>
+
         <div className="flex flex-wrap gap-2 pt-4 border-t">
           {["heading", "paragraph", "list", "code", "note"].map((type) => (
             <button
@@ -118,17 +129,6 @@ const QuestionForm = () => {
             >
               Add {type}
             </button>
-          ))}
-        </div>
-
-        <div className="space-y-6 pt-4">
-          {blocks.map((block) => (
-            <AnswerBlockEditor
-              key={block.id}
-              block={block}
-              onChange={updateBlock}
-              onDelete={() => removeBlock(block.id)}
-            />
           ))}
         </div>
 
@@ -143,7 +143,7 @@ const QuestionForm = () => {
         // <div
         //   className={`${isDarkMode ? "bg-gray-800" : "bg-white"} p-8 flex-2 rounded-2xl`}
         // >
-        <div className={`flex-2`}>
+        <div className={`flex-2 pt-8 lg:pt-0`}>
           <ArticleDetail
             question={{
               id: "",
