@@ -10,4 +10,5 @@ export const categoryGradient: Record<Question["category"], string> = {
   react: "from-blue-500 to-cyan-500",
   "react native": "from-purple-500 to-pink-500",
   javascript: "from-yellow-500 to-orange-500",
+  java: "from-blue-500 to-cyan-400",
 };

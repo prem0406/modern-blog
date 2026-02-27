@@ -38,7 +38,7 @@ const Header = () => {
               <Link to="/questions" className={linksClasses}>
                 Articles
               </Link>
-              <Link to="#" className={linksClasses}>
+              <Link to="/form" className={linksClasses}>
                 Categories
               </Link>
               <Link to="/about" className={linksClasses}>

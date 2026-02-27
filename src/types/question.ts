@@ -1,7 +1,7 @@
 import type { Timestamp } from "firebase/firestore";
 import type { AnswerBlock } from "./answer";
 
-export type QuestionCategory = "react" | "react native" | "javascript";
+export type QuestionCategory = "react" | "react native" | "javascript" | "java";
 
 export type QuestionDifficulty = "beginner" | "intermediate" | "advanced";
 

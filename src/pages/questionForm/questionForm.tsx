@@ -5,6 +5,7 @@ import type { Question } from "../../types/question";
 import type { AnswerBlock } from "../../types/answer";
 import { createQuestion } from "../../firebase/firestore.util";
 import { useThemeContext } from "../../theme/themeContext";
+import ArticleDetail from "../answers/articleDetail";
 
 const QuestionForm = () => {
   const [questionText, setQuestionText] = useState("");
@@ -59,11 +60,15 @@ const QuestionForm = () => {
   const { isDarkMode } = useThemeContext();
 
   return (
-    <div className={`max-w-4xl mx-auto p-8 py-32 min-h-screen`}>
+    <div
+      className={`max-w-4xl lg:max-w-full mx-auto p-8 py-32  min-h-screen lg:flex lg:gap-x-8   lg:justify-evenly`}
+    >
       <div
         className={`${isDarkMode ? "bg-gray-800" : "bg-white"} shadow-lg rounded-2xl p-8 space-y-6`}
       >
-        <h2 className="text-2xl font-semibold text-gray-800">
+        <h2
+          className={`text-2xl font-semibold ${isDarkMode ? "text-gray-200" : "text-gray-800"}`}
+        >
           Create Question
         </h2>
 
@@ -83,6 +88,7 @@ const QuestionForm = () => {
             <option value="react">React</option>
             <option value="react native">React Native</option>
             <option value="javascript">JavaScript</option>
+            <option value="java">Java</option>
           </select>
 
           <select
@@ -133,6 +139,24 @@ const QuestionForm = () => {
           Save Question
         </button>
       </div>
+      {true && (
+        // <div
+        //   className={`${isDarkMode ? "bg-gray-800" : "bg-white"} p-8 flex-2 rounded-2xl`}
+        // >
+        <div className={`flex-2`}>
+          <ArticleDetail
+            question={{
+              id: "",
+              category,
+              question: questionText,
+              difficulty,
+              tags: tags.split(",").map((t) => t.trim()),
+              answer: blocks,
+              isActive: true,
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };
