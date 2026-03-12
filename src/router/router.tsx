@@ -6,6 +6,7 @@ import Header from "../home/header";
 import Footer from "../home/footer";
 import QuestionForm from "../pages/questionForm/questionForm";
 import QuestionList from "../pages/interviewQuestions/questionList";
+import ArticleDetail from "../pages/articleDetail/articleDetail";
 
 export const Router = () => {
   return (
@@ -17,6 +18,7 @@ export const Router = () => {
         <Route path="/question/:id" element={<Answers />} />
         <Route path="/about" element={<About />} />
         <Route path="/form" element={<QuestionForm />} />
+        <Route path="/article/:id" element={<ArticleDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

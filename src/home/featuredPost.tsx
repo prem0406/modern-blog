@@ -23,7 +23,7 @@ const FeaturedPost = () => {
       <img
         src={featuredPost.image}
         alt={featuredPost.title}
-        className="w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
+        className="w-full h-125 object-cover group-hover:scale-105 transition-transform duration-700"
       />
       <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12 z-20">
         <span className="inline-block px-4 py-2 bg-linear-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold rounded-full mb-4">
