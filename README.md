@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Modern Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React + Vite blog and interview question app with Tailwind CSS styling and Firebase-backed question management.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+`modern-blog` is a frontend application built with React, TypeScript, Vite, and Tailwind CSS. It features a modern blog landing page, a searchable interview question section, content detail pages, and Firebase integration for persisting interview questions.
 
-## React Compiler
+## Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Home landing page with featured posts, categories, blog cards, and newsletter section
+- Interview questions listing with filters for category and difficulty
+- Question detail page with back navigation
+- Article detail pages for blog content
+- Question submission form backed by Firebase Firestore
+- Light and dark theme support using `ThemeContext`
+- Client-side routing with React Router
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Firebase Firestore
+- Jest + Testing Library
+- ESLint
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `src/`
+  - `App.tsx` - root app component
+  - `main.tsx` - app bootstrap and provider setup
+  - `router/router.tsx` - route definitions
+  - `blogTemplate.tsx` - homepage layout
+  - `pages/` - feature pages (home, about, answers, interview questions, form, article detail)
+  - `theme/` - dark mode theme context
+  - `firebase/` - Firestore config and utilities
+  - `hooks/` - custom data fetching hooks
+  - `types/` - TypeScript models
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Scripts
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- `npm run dev` � start the development server
+- `npm run build` � compile TypeScript and build the production bundle
+- `npm run preview` � preview the built app locally
+- `npm run lint` � run ESLint
+- `npm run test` � run Jest tests
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Start development server:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Open the app in your browser at `http://localhost:5173`
+
+## Firebase Setup
+
+This project includes Firebase Firestore integration. Make sure your Firebase config is set up correctly in `src/firebase/firebase.config.ts`.
+
+## Notes
+
+- The app is currently configured as a private Vite project.
+- Dark mode theming is managed through `ThemeProvider`.
+- Interview questions are fetched from Firestore and displayed in a responsive grid.
+
+## License
+
+This project is currently private.
