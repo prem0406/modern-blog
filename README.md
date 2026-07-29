@@ -47,6 +47,7 @@ A responsive React + Vite blog and interview question app with Tailwind CSS styl
 - `npm run preview` � preview the built app locally
 - `npm run lint` � run ESLint
 - `npm run test` � run Jest tests
+- `npm run deploy` � build the app and deploy to Firebase Hosting
 
 ## Getting Started
 
