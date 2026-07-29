@@ -66,12 +66,13 @@ A responsive React + Vite blog and interview question app with Tailwind CSS styl
 
 4. Add .env folder and add following values:
 
-````VITE_FIREBASE_API_KEY=
-VITE_FIREBASE_AUTH_DOMAIN=
-VITE_FIREBASE_PROJECT_ID=
-VITE_FIREBASE_STORAGE_BUCKET=
-VITE_FIREBASE_MESSAGING_SENDER_ID=
-VITE_FIREBASE_APP_ID=e```
+   ```VITE_FIREBASE_API_KEY=
+   VITE_FIREBASE_AUTH_DOMAIN=
+   VITE_FIREBASE_PROJECT_ID=
+   VITE_FIREBASE_STORAGE_BUCKET=
+   VITE_FIREBASE_MESSAGING_SENDER_ID=
+   VITE_FIREBASE_APP_ID=
+   ```
 
 ## Firebase Setup
 
@@ -86,4 +87,7 @@ This project includes Firebase Firestore integration. Make sure your Firebase co
 ## License
 
 This project is currently private.
-````
+
+```
+
+```
