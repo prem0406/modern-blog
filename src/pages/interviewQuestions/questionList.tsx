@@ -10,8 +10,8 @@ import CustomSelect from "../../common/customSelect";
 const QuestionList = () => {
   const { isDarkMode } = useThemeContext();
   const { questions } = useFetchQuestions();
-  const [category, setCategory] = useState<Question["category"]>("");
-  const [difficulty, setDifficulty] = useState<Question["difficulty"]>("");
+  const [category, setCategory] = useState<Question["category"] | "">("");
+  const [difficulty, setDifficulty] = useState<Question["difficulty"] | "">("");
 
   return (
     <section className={`max-w-7xl mx-auto px-6 py-30 `}>
