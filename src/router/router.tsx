@@ -7,6 +7,8 @@ import Footer from "../home/footer";
 import QuestionForm from "../pages/questionForm/questionForm";
 import QuestionList from "../pages/interviewQuestions/questionList";
 import ArticleDetail from "../pages/articleDetail/articleDetail";
+import ProtectedRoute from "../components/ProtectedRoute";
+import LoginPage from "../pages/login/login";
 
 export const Router = () => {
   return (
@@ -17,7 +19,12 @@ export const Router = () => {
         <Route path="/questions" element={<QuestionList />} />
         <Route path="/question/:id" element={<Answers />} />
         <Route path="/about" element={<About />} />
-        <Route path="/form" element={<QuestionForm />} />
+        <Route path="/login" element={<LoginPage />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/form" element={<QuestionForm />} />
+        </Route>
+
         <Route path="/article/:id" element={<ArticleDetail />} />
       </Routes>
       <Footer />
